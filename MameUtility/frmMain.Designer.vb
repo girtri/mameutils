@@ -26,7 +26,7 @@ Partial Class frmMain
         Me.lblDest = New System.Windows.Forms.Label()
         Me.txtSource = New System.Windows.Forms.TextBox()
         Me.txtDest = New System.Windows.Forms.TextBox()
-        Me.btnOk = New System.Windows.Forms.Button()
+        Me.btnCerca = New System.Windows.Forms.Button()
         Me.btnAnnulla = New System.Windows.Forms.Button()
         Me.sourceDialog = New System.Windows.Forms.FolderBrowserDialog()
         Me.destDialog = New System.Windows.Forms.FolderBrowserDialog()
@@ -38,6 +38,7 @@ Partial Class frmMain
         Me.txtExpFiles = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.listMissed = New System.Windows.Forms.ListBox()
+        Me.btnEsporta = New System.Windows.Forms.Button()
         Me.SuspendLayout()
         '
         'lblSource
@@ -72,18 +73,20 @@ Partial Class frmMain
         Me.txtDest.Size = New System.Drawing.Size(473, 20)
         Me.txtDest.TabIndex = 3
         '
-        'btnOk
+        'btnCerca
         '
-        Me.btnOk.Location = New System.Drawing.Point(26, 318)
-        Me.btnOk.Name = "btnOk"
-        Me.btnOk.Size = New System.Drawing.Size(105, 29)
-        Me.btnOk.TabIndex = 4
-        Me.btnOk.Text = "Esporta roms"
-        Me.btnOk.UseVisualStyleBackColor = True
+        Me.btnCerca.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnCerca.Location = New System.Drawing.Point(26, 287)
+        Me.btnCerca.Name = "btnCerca"
+        Me.btnCerca.Size = New System.Drawing.Size(105, 29)
+        Me.btnCerca.TabIndex = 4
+        Me.btnCerca.Text = "Cerca roms"
+        Me.btnCerca.UseVisualStyleBackColor = True
         '
         'btnAnnulla
         '
-        Me.btnAnnulla.Location = New System.Drawing.Point(26, 383)
+        Me.btnAnnulla.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAnnulla.Location = New System.Drawing.Point(26, 372)
         Me.btnAnnulla.Name = "btnAnnulla"
         Me.btnAnnulla.Size = New System.Drawing.Size(105, 29)
         Me.btnAnnulla.TabIndex = 5
@@ -128,19 +131,23 @@ Partial Class frmMain
         '
         'txtTotFiles
         '
+        Me.txtTotFiles.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtTotFiles.Location = New System.Drawing.Point(159, 174)
         Me.txtTotFiles.Name = "txtTotFiles"
         Me.txtTotFiles.ReadOnly = True
         Me.txtTotFiles.Size = New System.Drawing.Size(45, 20)
         Me.txtTotFiles.TabIndex = 10
+        Me.txtTotFiles.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'txtExpFiles
         '
+        Me.txtExpFiles.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtExpFiles.Location = New System.Drawing.Point(159, 205)
         Me.txtExpFiles.Name = "txtExpFiles"
         Me.txtExpFiles.ReadOnly = True
         Me.txtExpFiles.Size = New System.Drawing.Size(45, 20)
         Me.txtExpFiles.TabIndex = 11
+        Me.txtExpFiles.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label3
         '
@@ -153,17 +160,30 @@ Partial Class frmMain
         '
         'listMissed
         '
+        Me.listMissed.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.listMissed.FormattingEnabled = True
+        Me.listMissed.ItemHeight = 16
         Me.listMissed.Location = New System.Drawing.Point(259, 167)
         Me.listMissed.Name = "listMissed"
-        Me.listMissed.Size = New System.Drawing.Size(285, 251)
+        Me.listMissed.Size = New System.Drawing.Size(285, 244)
         Me.listMissed.TabIndex = 13
+        '
+        'btnEsporta
+        '
+        Me.btnEsporta.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEsporta.Location = New System.Drawing.Point(26, 327)
+        Me.btnEsporta.Name = "btnEsporta"
+        Me.btnEsporta.Size = New System.Drawing.Size(105, 29)
+        Me.btnEsporta.TabIndex = 14
+        Me.btnEsporta.Text = "Esporta roms"
+        Me.btnEsporta.UseVisualStyleBackColor = True
         '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(556, 437)
+        Me.Controls.Add(Me.btnEsporta)
         Me.Controls.Add(Me.listMissed)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtExpFiles)
@@ -173,7 +193,7 @@ Partial Class frmMain
         Me.Controls.Add(Me.selDest)
         Me.Controls.Add(Me.selSource)
         Me.Controls.Add(Me.btnAnnulla)
-        Me.Controls.Add(Me.btnOk)
+        Me.Controls.Add(Me.btnCerca)
         Me.Controls.Add(Me.txtDest)
         Me.Controls.Add(Me.txtSource)
         Me.Controls.Add(Me.lblDest)
@@ -190,7 +210,7 @@ Partial Class frmMain
     Friend WithEvents lblDest As Label
     Friend WithEvents txtSource As TextBox
     Friend WithEvents txtDest As TextBox
-    Friend WithEvents btnOk As Button
+    Friend WithEvents btnCerca As Button
     Friend WithEvents btnAnnulla As Button
     Friend WithEvents sourceDialog As FolderBrowserDialog
     Friend WithEvents destDialog As FolderBrowserDialog
@@ -202,4 +222,5 @@ Partial Class frmMain
     Friend WithEvents txtExpFiles As TextBox
     Friend WithEvents Label3 As Label
     Friend WithEvents listMissed As ListBox
+    Friend WithEvents btnEsporta As Button
 End Class
