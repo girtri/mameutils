@@ -37,8 +37,12 @@ Partial Class frmMain
         Me.txtTotFiles = New System.Windows.Forms.TextBox()
         Me.txtExpFiles = New System.Windows.Forms.TextBox()
         Me.Label3 = New System.Windows.Forms.Label()
-        Me.listMissed = New System.Windows.Forms.ListBox()
         Me.btnEsporta = New System.Windows.Forms.Button()
+        Me.lblTotNotFound = New System.Windows.Forms.Label()
+        Me.lsvMissed = New System.Windows.Forms.ListView()
+        Me.colName = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.colAlt = CType(New System.Windows.Forms.ColumnHeader(), System.Windows.Forms.ColumnHeader)
+        Me.chkAlt = New System.Windows.Forms.CheckBox()
         Me.SuspendLayout()
         '
         'lblSource
@@ -65,6 +69,7 @@ Partial Class frmMain
         Me.txtSource.Name = "txtSource"
         Me.txtSource.Size = New System.Drawing.Size(473, 20)
         Me.txtSource.TabIndex = 2
+        Me.txtSource.Text = "F:\Mame0149\MameRoms"
         '
         'txtDest
         '
@@ -72,6 +77,7 @@ Partial Class frmMain
         Me.txtDest.Name = "txtDest"
         Me.txtDest.Size = New System.Drawing.Size(473, 20)
         Me.txtDest.TabIndex = 3
+        Me.txtDest.Text = "F:\Mame0149\ExportRoms"
         '
         'btnCerca
         '
@@ -154,19 +160,9 @@ Partial Class frmMain
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.Location = New System.Drawing.Point(256, 143)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(130, 21)
+        Me.Label3.Size = New System.Drawing.Size(91, 21)
         Me.Label3.TabIndex = 12
-        Me.Label3.Text = "Files non trovati:"
-        '
-        'listMissed
-        '
-        Me.listMissed.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.listMissed.FormattingEnabled = True
-        Me.listMissed.ItemHeight = 16
-        Me.listMissed.Location = New System.Drawing.Point(259, 167)
-        Me.listMissed.Name = "listMissed"
-        Me.listMissed.Size = New System.Drawing.Size(285, 244)
-        Me.listMissed.TabIndex = 13
+        Me.Label3.Text = "non trovati:"
         '
         'btnEsporta
         '
@@ -178,13 +174,55 @@ Partial Class frmMain
         Me.btnEsporta.Text = "Esporta roms"
         Me.btnEsporta.UseVisualStyleBackColor = True
         '
+        'lblTotNotFound
+        '
+        Me.lblTotNotFound.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTotNotFound.Location = New System.Drawing.Point(333, 144)
+        Me.lblTotNotFound.Name = "lblTotNotFound"
+        Me.lblTotNotFound.Size = New System.Drawing.Size(95, 21)
+        Me.lblTotNotFound.TabIndex = 15
+        Me.lblTotNotFound.Text = "(tot: x)"
+        '
+        'lsvMissed
+        '
+        Me.lsvMissed.Columns.AddRange(New System.Windows.Forms.ColumnHeader() {Me.colName, Me.colAlt})
+        Me.lsvMissed.FullRowSelect = True
+        Me.lsvMissed.Location = New System.Drawing.Point(259, 167)
+        Me.lsvMissed.Name = "lsvMissed"
+        Me.lsvMissed.Size = New System.Drawing.Size(285, 258)
+        Me.lsvMissed.TabIndex = 16
+        Me.lsvMissed.UseCompatibleStateImageBehavior = False
+        Me.lsvMissed.View = System.Windows.Forms.View.Details
+        '
+        'colName
+        '
+        Me.colName.Text = "Rom"
+        Me.colName.Width = 140
+        '
+        'colAlt
+        '
+        Me.colAlt.Text = "Alt"
+        Me.colAlt.Width = 140
+        '
+        'chkAlt
+        '
+        Me.chkAlt.AutoSize = True
+        Me.chkAlt.Location = New System.Drawing.Point(434, 144)
+        Me.chkAlt.Name = "chkAlt"
+        Me.chkAlt.Size = New System.Drawing.Size(110, 17)
+        Me.chkAlt.TabIndex = 17
+        Me.chkAlt.Text = "Esporta alternativi"
+        Me.chkAlt.UseVisualStyleBackColor = True
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(556, 437)
+        Me.Controls.Add(Me.chkAlt)
+        Me.Controls.Add(Me.lsvMissed)
+        Me.Controls.Add(Me.lblTotNotFound)
         Me.Controls.Add(Me.btnEsporta)
-        Me.Controls.Add(Me.listMissed)
         Me.Controls.Add(Me.Label3)
         Me.Controls.Add(Me.txtExpFiles)
         Me.Controls.Add(Me.txtTotFiles)
@@ -221,6 +259,10 @@ Partial Class frmMain
     Friend WithEvents txtTotFiles As TextBox
     Friend WithEvents txtExpFiles As TextBox
     Friend WithEvents Label3 As Label
-    Friend WithEvents listMissed As ListBox
     Friend WithEvents btnEsporta As Button
+    Friend WithEvents lblTotNotFound As Label
+    Friend WithEvents lsvMissed As ListView
+    Friend WithEvents colName As ColumnHeader
+    Friend WithEvents colAlt As ColumnHeader
+    Friend WithEvents chkAlt As CheckBox
 End Class
